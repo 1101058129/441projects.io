@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Work Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="products.html">Resource Kits</a></li>
+                <li><a href="show.html">Student Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Student Project Showcase</h1>
+        <div class="project-gallery">
+            <div class="project" onclick="toggleDetails(this)">
+                <h2>Digital Marketing Strategy in Practice</h2>
+                <p class="project-summary">This project was completed by RTO Business Management students with the goal of designing and implementing a comprehensive digital marketing strategy for a local small business. Through market research and competitive analysis, the team developed a comprehensive plan that included social media promotion, search engine optimization (SEO), and content marketing. During the implementation of the project, we successfully enhanced the brand awareness of the company and realized significant growth of the customer base.
+                <img src="1.jpg" alt="Project Image">
+                <div class="project-details" style="display:none;">
+                    <p>Google Analytics, SEMrush, Hootsuite, WordPress</p>
+                    <p>Student Feedback: “This project not only allowed us to connect theory to practice and experience the whole process of digital marketing first hand, but more importantly, we helped a small business achieve real business growth, and the sense of accomplishment is unparalleled.”</p>
+                </div>
+            </div>
+            <div class="project" onclick="toggleDetails(this)">
+                <h2>Intelligent Logistics Management System Development</h2>
+                <p class="project-summary">A team of Information Technology students developed an Intelligent Logistics Management System for a logistics company. The system integrates RFID tracking, automated inventory management, predictive data analysis, and other functions, which greatly improves the efficiency of warehouse operations and reduces manual errors. During the implementation of the project, team members gained in-depth knowledge of key skills such as database design, IoT technology and data visualization.</p>
+                <img src="2.jpg" alt="Project Image">
+                <div class="project-details" style="display:none;">
+                    <p>Java, MySQL, RFID Technology, Tableau</p>
+                    <p>Student Feedback: "By participating in this project, we not only mastered cutting-edge technologies, but more importantly learned how to work together in a complex environment and solve real-world problems"</p>
+                </div>
+            </div>
+            <div class="project" onclick="toggleDetails(this)">
+                <h2>Mobile Application Development: Health Management Assistant</h2>
+                <p class="project-summary">This is an interdisciplinary collaborative project in which software development and health science students worked together to develop a health management mobile app. The application combines features such as exercise tracking, dietary advice, and mental health assessment to provide users with a full range of health management services. The project team rapidly iterated the product through Agile development methodology, and ultimately gained high praise from users.</p>
+                <img src="3.jpg" alt="Project Image">
+                <div class="project-details" style="display:none;">
+                    <p>Swift (iOS), Kotlin (Android), Firebase, HealthKit</p>
+                    <p>Student Feedback: "This interdisciplinary collaboration made us realize that the combination of technology and expertise can create products that truly change people's lives. We are proud to be able to contribute to public health"</p>
+                </div>
+            </div>
+            <div class="project" onclick="toggleDetails(this)">
+                <h2>Green Building Design and Assessment System</h2>
+                <p class="project-summary">A group of architectural engineering and environmental science students collaborated to develop an intelligent system for evaluating the environmental performance of buildings. The system utilizes big data analysis to rate the energy efficiency, material sustainability, and water recycling system of a building, providing a scientific environmental indicator for building design. The project demonstrates how technological innovation can drive green development in the construction industry.
+                </p>
+                <img src="4.jpg" alt="Project Image">
+                <div class="project-details" style="display:none;">
+                    <p>BIM (Building Information Modeling), Python Data Analytics, LEED Rating System</p>
+                    <p>Student Feedback: "This project gave us a deep understanding of our responsibility as future architects and engineers to push the industry in a greener and more sustainable direction."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="products.html">Resource Kits</a></li>
+                <li><a href="show.html">Student Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<h2>Student Course Registration Form</h2>
+
+<form action="/register_course" method="post">
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="gender">Gender:</label><br>
+    <input type="text" id="gender" name="gender" required>
+
+    <label for="sid">Student ID:</label><br>
+    <input type="text" id="sid" name="sid" required>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="course">Select Course:</label><br>
+    <select id="course" name="course" required>
+        <option value="">Please Select a Course</option>
+        <option value="Mathematics">Business Administration Program</option>
+        <option value="Physics">Information Technology (IT) Courses</option>
+        <option value="Chemistry">Health and Nursing Programs</option>
+    </select>
+
+    <button id="submitBtn" type="button">Submit</button>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
