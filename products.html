@@ -4,18 +4,18 @@
     <title>Resource Kits</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="products.html">Resource Kits</a></li>
-            <li><a href="show.html">Student Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
 <body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="products.html">Resource Kits</a></li>
+                <li><a href="show.html">Student Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1>Resource Kits</h1>
 
     <div id="products">
@@ -27,8 +27,23 @@
     <div id="cart">
     </div>
 
+    <p id="total">Total: $0.00</p>
+
     <button id="checkout">Checkout</button>
     <button id="clearCart">Clear Cart</button>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Order Details</h3>
+            <div id="orderDetails"></div>
+            <p>Total: <span id="orderTotal">$0.00</span></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy;Jon 2024 NetLink Tech School. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

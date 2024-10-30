@@ -1,10 +1,5 @@
-//Jon Wu Yuhan723
-// Initialization: performs DOM manipulation and function binding when the document content is fully loaded.
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Define an array of items with names and prices.
     const products = [
-        // Commodity information
         { name: 'Business Administration Program', price: 50 },
         { name: 'Information Technology (IT) Courses', price: 60 },
         { name: 'Architecture and Engineering Programs', price: 55 },
@@ -13,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
- // Render the product list function
+
     function renderProducts() {
         let productList = '';
         for (let product of products) {
@@ -30,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderCart() {
-        // Calculate the total price and build the shopping cart list HTML string
         let cartList = '';
         let total = 0;
         for (let [index, item] of cart.entries()) {
@@ -41,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
         document.getElementById('cart').innerHTML = cartList;
-        document.getElementById('total').innerText = '$' + total.toFixed(2);
+        document.getElementById('total').innerText = 'Total: $' + total.toFixed(2);
     }
- // Add a click event listener to the product list to handle the add-to-cart logic.
+
     document.getElementById('products').addEventListener('click', function(e) {
         if (e.target.classList.contains('add-to-cart')) {
             const productName = e.target.getAttribute('data-product');
@@ -79,8 +73,32 @@ document.addEventListener('DOMContentLoaded', function() {
     renderCart();
 
     function checkout() {
-        alert('Thank you for your purchase!');
-        clearCart();
+        const modal = document.getElementById('orderModal');
+        const orderDetails = document.getElementById('orderDetails');
+        const orderTotal = document.getElementById('orderTotal');
+
+        let orderList = '';
+        let total = 0;
+        for (let item of cart) {
+            total += item.quantity * item.product.price;
+            orderList += `
+                <p>${item.product.name} x ${item.quantity}</p>
+            `;
+        }
+        orderDetails.innerHTML = orderList;
+        orderTotal.innerText = '$' + total.toFixed(2);
+
+        modal.style.display = 'block';
+
+        document.getElementsByClassName('close')[0].addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
     }
 
     function clearCart() {
@@ -88,32 +106,4 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('cart');
         renderCart();
     }
-});
-
-//index
-function navigateToContact() {
-    window.location.href = 'contact.html';
-}
-//show
-function toggleDetails(projectElement) {
-    const details = projectElement.querySelector('.project-details');
-    if (details.style.display === 'none') {
-        details.style.display = 'block';
-        // Lazy load image if not loaded yet
-        const imgElement = projectElement.querySelector('.lazy-load');
-        if (imgElement.src === 'placeholder.jpg') {
-            imgElement.src = imgElement.dataset.src;
-            imgElement.onload = function() {
-                imgElement.style.opacity = 1;
-            };
-        }
-    } else {
-        details.style.display = 'none';
-    }
-}
-//contact
-var submitBtn = document.getElementById('submitBtn');
-
-submitBtn.addEventListener('click', function() {
-    alert('Successful Submission');
 });
