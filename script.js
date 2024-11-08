@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const products = [
-        { name: 'Business Administration Program', price: 50 },
-        { name: 'Information Technology (IT) Courses', price: 60 },
-        { name: 'Architecture and Engineering Programs', price: 55 },
-        { name: 'Health and Nursing Programs', price: 55 },
-        { name: 'Creative Industries Courses', price: 70 }
+        { code: 'BA001', name: 'Business Administration Program', price: 50 },
+        { code: 'IT001', name: 'Information Technology (IT) Courses', price: 60 },
+        { code: 'AE001', name: 'Architecture and Engineering Programs', price: 55 },
+        { code: 'HN001', name: 'Health and Nursing Programs', price: 55 },
+        { code: 'CI001', name: 'Creative Industries Courses', price: 70 }
     ];
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let product of products) {
             productList += `
                 <div class="product">
-                    <h3>${product.name}</h3>
+                    <h3>${product.code}: ${product.name}</h3>
                     <p>$${product.price}</p>
                     <input type="number" id="quantity-${products.indexOf(product)}" value="1" min="1">
                     <button class="add-to-cart" data-product="${product.name}">Add to Cart</button>

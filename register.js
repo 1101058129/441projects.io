@@ -9,9 +9,9 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     localStorage.setItem('password', newPassword);
 
     alert('Registration successful! Please login.');
-    window.location.href = 'index.html'; // Redirect to login page
+    window.location.href = 'login.html'; // Redirect to login page
 });
 
 function goToLogin() {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }

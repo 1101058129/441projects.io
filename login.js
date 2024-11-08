@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (username === storedUser && password === storedPass) {
         alert('Login successful!');
-        window.location.href = 'home.html'; // Redirect to home page
+        window.location.href = 'index.html'; // Redirect to home page
     } else {
         alert('Invalid username or password.');
     }

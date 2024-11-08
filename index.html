@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jon NetLink Tech School Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .navbar ul {
+            display: flex;
+            justify-content: space-between; /* 分布导航项目 */
+        }
+        .navbar li.login {
+            margin-left: auto; /* 将登录按钮推至最右侧 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="products.html">Resource Kits</a></li>
+                <li><a href="show.html">Student Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="login"><a href="login.html">Login</a></li> <!-- 新增登录按钮 -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Welcome to NetLink Tech School</h1>
+            <p>Empowering Future IT Professionals</p>
+            <button class="cta" onclick="navigateToContact()">Enroll Now</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;Jon 2024 NetLink Tech School. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
