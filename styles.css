@@ -357,3 +357,13 @@ body {
         button:hover {
             opacity: 0.8;
         }
+        .navbar ul {
+            display: flex;
+            justify-content: space-between; 
+        }
+        .navbar li.login, .navbar li.logout {
+            margin-left: auto; 
+        }
+        .navbar li.logout {
+            display: none; 
+        }
