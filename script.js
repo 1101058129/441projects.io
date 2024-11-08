@@ -107,3 +107,68 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCart();
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // 检查登录状态
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    // 获取所有导航链接
+    const navLinks = document.querySelectorAll('.navbar ul li a');
+    const loginLink = document.querySelector('.navbar li.login a');
+    const logoutLink = document.querySelector('.navbar li.logout a');
+
+    // 根据登录状态显示或隐藏登录和注销按钮
+    function updateNavButtons() {
+        if (isLoggedIn) {
+            if (loginLink) loginLink.parentElement.style.display = 'none';
+            if (logoutLink) logoutLink.parentElement.style.display = 'block';
+        } else {
+            if (loginLink) loginLink.parentElement.style.display = 'block';
+            if (logoutLink) logoutLink.parentElement.style.display = 'none';
+        }
+    }
+
+    // 初始化导航按钮状态
+    updateNavButtons();
+
+    // 添加点击事件监听器
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // 获取链接的目标页面
+            const targetPage = new URL(link.href).pathname;
+
+            // 如果不是登录页面且用户未登录，阻止跳转
+            if (!isLoggedIn && targetPage !== '/login.html' && link !== loginLink) {
+                event.preventDefault(); // 阻止默认跳转行为
+                alert('Please log in to access this page.');
+            }
+        });
+    });
+
+    // 登录按钮点击事件
+    if (loginLink) {
+        loginLink.addEventListener('click', function() {
+            localStorage.setItem('previousPage', window.location.href);
+        });
+    }
+
+    // 注销按钮点击事件
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认跳转行为
+            localStorage.removeItem('isLoggedIn'); // 清除登录状态
+            alert('You have been logged out.');
+            window.location.href = 'index.html'; // 重定向到首页
+            updateNavButtons(); // 更新导航按钮状态
+        });
+    }
+
+    // 注册 Enroll Now 按钮点击事件
+    function navigateToContact() {
+        if (isLoggedIn) {
+            window.location.href = 'contact.html';
+        } else {
+            alert('Please log in to enroll.');
+            window.location.href = 'login.html';
+        }
+    }
+});
