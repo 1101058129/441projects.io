@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 检查登录状态
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-    // 获取所有导航链接
     const navLinks = document.querySelectorAll('.navbar ul li a');
     const loginLink = document.querySelector('.navbar li.login a');
     const logoutLink = document.querySelector('.navbar li.logout a');
 
-    // 根据登录状态显示或隐藏登录和注销按钮
     function updateNavButtons() {
         if (isLoggedIn) {
             if (loginLink) loginLink.parentElement.style.display = 'none';
@@ -18,10 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 初始化导航按钮状态
     updateNavButtons();
 
-    // 添加点击事件监听器
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             const targetPage = new URL(link.href).pathname;
@@ -33,14 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 登录按钮点击事件
     if (loginLink) {
         loginLink.addEventListener('click', function() {
             localStorage.setItem('previousPage', window.location.href);
         });
     }
 
-    // 注销按钮点击事件
     if (logoutLink) {
         logoutLink.addEventListener('click', function(event) {
             event.preventDefault();
@@ -50,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateNavButtons();
         });
     }
-
-    // 注册 Enroll Now 按钮点击事件
     function navigateToContact() {
         if (isLoggedIn) {
             window.location.href = 'contact.html';
@@ -61,34 +52,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 为 Enroll Now 按钮添加点击事件
     const enrollButton = document.querySelector('.cta');
     if (enrollButton) {
         enrollButton.addEventListener('click', navigateToContact);
     }
 
-    // 处理登录表单提交
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            let username = document.getElementById('username').value;
-            let password = document.getElementById('password').value;
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
 
-            // 验证用户名和密码
-            if (localStorage.getItem('username') === username && localStorage.getItem('password') === password) {
-                localStorage.setItem('isLoggedIn', 'true');
-                alert('Login successful!');
-                let previousPage = localStorage.getItem('previousPage') || 'index.html';
-                window.location.href = previousPage;
-                updateNavButtons();
-            } else {
-                alert('Invalid username or password.');
-            }
-        });
-    }
+        if (localStorage.getItem('username') === username && localStorage.getItem('password') === password) {
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Login successful!');
+            window.location.href = 'products.html'; //  products.html
+            updateNavButtons();
+        } else {
+            alert('Invalid username or password.');
+        }
+    });
+}
 
-    // 处理注册表单提交
+    // Process registration form submissions
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
@@ -96,16 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
             let newUsername = document.getElementById('newUsername').value;
             let newPassword = document.getElementById('newPassword').value;
 
-            // 存储新用户的凭据（仍然不安全，仅用于学习）
+            // Stores the credentials of the new user
             localStorage.setItem('username', newUsername);
             localStorage.setItem('password', newPassword);
 
             alert('Registration successful! Please login.');
-            window.location.href = 'login.html'; // 重定向到登录页面
+            window.location.href = 'login.html'; // Redirect to the login page
         });
     }
 
-    // 处理产品页面
+    // Processing product pages
     const products = [
         { code: 'BA001', name: 'Business Administration Program', price: 50 },
         { code: 'IT001', name: 'Information Technology (IT) Courses', price: 60 },
